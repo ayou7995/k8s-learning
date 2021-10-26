@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: whales-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: whales.demo.com
+    http:
+      paths:
+      - path: /blue-whale
+        pathType: Prefix
+        backend:
+          service:
+            name: blue-whale-service
+            port:
+              number: 80
+      - path: /purple-whale
+        pathType: Prefix
+        backend:
+          service:
+            name: purple-whale-service
+            port:
+              number: 80

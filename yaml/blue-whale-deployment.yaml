@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blue-whale-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: blue-whale-pod
+  template:
+    metadata:
+      labels:
+        app: blue-whale-pod
+    spec:
+      containers:
+        - name: blue-whale
+          image: hcwxd/blue-whale
+          ports:
+            - containerPort: 3000

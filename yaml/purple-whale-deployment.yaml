@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: purple-whale-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: purple-whale-pod
+  template:
+    metadata:
+      labels:
+        app: purple-whale-pod
+    spec:
+      containers:
+        - name: purple-whale
+          image: hcwxd/purple-whale
+          ports:
+            - containerPort: 3000
