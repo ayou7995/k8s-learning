@@ -1,6 +1,9 @@
 # syntax=docker/dockerfile:1
 
-FROM python:3.8-slim-buster
+FROM ubuntu
+
+RUN apt update && \
+    apt install -y python3 python3-pip
 
 WORKDIR /app
 
